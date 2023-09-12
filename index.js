@@ -49,6 +49,36 @@ const pizzas = [
 ];
 
 // a)  Las pizzas que tengan un id impar.
+
+const pizzasConIdImpar = pizzas.filter(pizza => pizza.id % 2 !== 0);
+
+console.log("Las pizzas con el ID impar son las siguientes bro:");
+console.log(pizzasConIdImpar);
+
+
 // b) Responder: ¿Hay alguna pizza que valga menos de $600?
+
+const pizzasBaratiolis = pizzas.some(pizza => pizza.precio < 600);
+
+if (pizzasBaratiolis) {
+  console.log("Si pa, tranqui que hay pizzas que valen menos de $600");
+} else {
+  console.log("Te debo amigo, no hay pizzas que valgan menos de $600");
+}
+
 // c) El nombre de cada pizza con su respectivo precio.
+
+pizzas.forEach(pizza => {
+  console.log(`La famosa ${pizza.nombre}, cuesta: $${pizza.precio}`);
+});
+
+
 // d) Todos los ingredientes de cada pizza (En cada iteración imprimir los ingredientes de la pizza que se esta recorriendo). Ayuda: van a tener que realizar dos recorridos, ya que cada pizza del array de pizzas tiene una propiedad "ingredientes" cuyo valor es un array con ingredientes.
+
+pizzas.forEach(pizza => {
+  console.log(`La famosa ${pizza.nombre} lleva:`);
+  
+  pizza.ingredientes.forEach(ingrediente => {
+    console.log(ingrediente);
+  });
+});
